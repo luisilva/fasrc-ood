@@ -1,12 +1,10 @@
 # == Class: ood::service
-class ntp::service inherits ood::params {
+class ood::service inherits ood::params {
 
-  service { 'httpd24':
-    ensure     => running,
-    enable     => true,
+  service { $ood_service_name:
+    ensure     => $ood_service_ensure,
+    enable     => $ood_service_enable,
     hasstatus  => true,
     hasrestart => true,
-    require => Package['httpd24'],
   }
-
 }

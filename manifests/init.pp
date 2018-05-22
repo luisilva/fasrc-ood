@@ -33,9 +33,36 @@
 #
 # === Copyright
 #
-# Copyright 2018 Your name here, unless otherwise noted.
+# Copyright 2018 FASRC, unless otherwise noted.
 #
-class ood {
+class ood (
 
+  ## Packages
+  $package_name		= $ood::params::module_package_name,
 
+  ## Services
+  $service_name		= $ood::params::module_service_name,
+
+  ## Dirs
+  $config_dir		= $ood::params::module_config_dir,
+  $service_dir		= $ood::params::module_service_dir,
+  $home			= $ood::params::module_home,
+
+  ## Conf Files
+  $config_file		= $ood::params::module_config_file,
+  $service_file		= $ood::params::module_service_file,
+
+  ## settings
+  $module_settings	= $ood::params::module_settings,
+) inherits ood::params {
+
+  # validate parameters here
+  validate_hash($settings)
+  validate_string($package_name)
+
+  class { 'ood::repos': } ->
+  class { 'ood::install': } ->
+  class { 'ood::config': } ~>
+  class { 'ood::service': } ->
+  Class['ood']
 }

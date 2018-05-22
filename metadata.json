@@ -1,0 +1,14 @@
+{
+  "name": "fasrc-ood",
+  "version": "0.1.0",
+  "author": "fasrc",
+  "summary": "OSC Ondemand setup and configuration",
+  "license": "GPL 2.0",
+  "source": "https://github.com/luisilva/fasrc-ood.git",
+  "issues_url": "https://github.com/luisilva/fasrc-ood/issues",
+  "project_page": "https://github.com/luisilva/fasrc-ood",
+  "dependencies": [
+    {"version_requirement":">= 1.0.0","name":"puppetlabs-stdlib"}
+  ]
+}
+
